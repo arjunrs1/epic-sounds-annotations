@@ -153,6 +153,9 @@ def get_stats(preds, labels):
     preds = preds[:, ~(np.all(labels == 0, axis=0))]
     labels = labels[:, ~(np.all(labels == 0, axis=0))]
 
+    print(preds)
+    print(labels)
+    exit()
     stats = calculate_stats(preds, labels)
     # Write out to log
     mAP = np.mean([stat['AP'] for stat in stats])

@@ -89,6 +89,9 @@ def perform_test(test_loader, model, test_meter, cfg):
     # Log epoch stats and print the final testing results.
     all_preds = test_meter.video_preds.clone().detach()
     all_labels = test_meter.video_labels
+    #print(all_labels)
+    #print(torch.sum(torch.abs(all_labels)))
+    #exit()
     if cfg.NUM_GPUS:
         all_preds = all_preds.cpu()
         all_labels = all_labels.cpu()
