@@ -160,5 +160,7 @@ def test(cfg):
         scores_path = os.path.join(cfg.OUTPUT_DIR, 'scores')
         if not os.path.exists(scores_path):
             os.makedirs(scores_path)
-        file_path = os.path.join(scores_path, cfg.EPICSOUNDS.TEST_LIST)
+        test_list_name = cfg.EPICSOUNDS.TEST_LIST.split("/")[-1]
+        file_path = os.path.join(scores_path, test_list_name)
+        directory = os.path.dirname(file_path)
         pickle.dump(results, open(file_path, 'wb'))
